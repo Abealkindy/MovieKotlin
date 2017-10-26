@@ -4,23 +4,11 @@ import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
 import android.support.design.widget.AppBarLayout
-import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.LinearLayoutManager
 import android.text.format.DateUtils
 import android.text.format.Time
-import android.util.Log
 import android.view.View
-import android.widget.Toast
-import com.android.volley.Request
-import com.android.volley.RequestQueue
-import com.android.volley.Response
-import com.android.volley.VolleyError
-import com.android.volley.toolbox.StringRequest
-import com.android.volley.toolbox.Volley
-import com.google.gson.Gson
-import com.google.gson.GsonBuilder
 import com.rosinante24.firstinthisversion.Adapters.TrailersAdapter
 import com.rosinante24.firstinthisversion.POKO.DetaiPOKO
 import com.rosinante24.firstinthisversion.POKO.TrailersPOKO
@@ -36,8 +24,6 @@ import retrofit2.Callback
 
 class DetailActivity : AppCompatActivity() {
 
-    var detailPoko: DetaiPOKO? = null
-    var trailerPoko: TrailersPOKO? = null
     var releaseDateMovie: String? = null
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -136,7 +122,7 @@ class DetailActivity : AppCompatActivity() {
             override fun onResponse(call: Call<DetaiPOKO>?, response: retrofit2.Response<DetaiPOKO>?) {
                 if (response != null) {
                     if (response.isSuccessful) {
-                        text_durasi.text = response.body()?.runtime + "Minutes"
+                        text_durasi.text = response.body()?.runtime + " Minutes"
                         content_original_title.text = response.body()?.original_title
                         content_premiere.text = timeSetUp(releaseDateMovie!!)
                         content_description.text = response.body()?.overview
