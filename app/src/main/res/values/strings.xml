@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">FirstInThisVersion</string>
+    <string name="app_name">Discover Movie</string>
     <string name="toolbar_title">Discover Movie</string>
     <string name="title_activity_detail">Detail Movie</string>
 
