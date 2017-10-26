@@ -1,13 +1,16 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/refresh_upcoming"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.rosinante24.firstinthisversion.Fragments.UpcomingFragment">
 
     <!-- TODO: Update blank fragment layout -->
+
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recyler_upcoming"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
-</FrameLayout>
+
+</android.support.v4.widget.SwipeRefreshLayout>

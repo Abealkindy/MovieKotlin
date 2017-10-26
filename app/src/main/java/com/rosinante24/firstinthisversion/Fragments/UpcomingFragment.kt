@@ -3,6 +3,7 @@ package com.rosinante24.firstinthisversion.Fragments
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.support.v4.widget.SwipeRefreshLayout
 import android.support.v7.widget.GridLayoutManager
 import android.view.LayoutInflater
 import android.view.View
@@ -25,6 +26,13 @@ class UpcomingFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         var view = inflater.inflate(R.layout.fragment_upcoming, container, false)
+
+        var swipe = view.findViewById<View>(R.id.refresh_upcoming) as SwipeRefreshLayout
+        swipe.setOnRefreshListener {
+            swipe.isRefreshing = false
+            getUpcomingData()
+        }
+
         getUpcomingData()
         return view
     }
