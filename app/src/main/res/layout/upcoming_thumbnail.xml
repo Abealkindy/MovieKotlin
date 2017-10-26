@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.rosinante24.firstinthisversion.Utils.SquareLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/sq_Upcoming"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/upcomingThumbnail"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:adjustViewBounds="true"
+        android:scaleType="centerCrop" />
+
+</com.rosinante24.firstinthisversion.Utils.SquareLayout>

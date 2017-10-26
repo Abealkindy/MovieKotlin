@@ -1,0 +1,22 @@
+<resources>
+    <dimen name="app_bar_height">180dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="text_margin">16dp</dimen>
+    <dimen name="jarak30dp">30dp</dimen>
+    <dimen name="jarak33dp">33dp</dimen>
+    <dimen name="jarak15dp">15dp</dimen>
+    <dimen name="jarak10dp">10dp</dimen>
+    <dimen name="jarak0dp">0dp</dimen>
+    <dimen name="jarak20dp">20dp</dimen>
+    <dimen name="jarak2dp">2dp</dimen>
+    <dimen name="jarak8dp">8dp</dimen>
+    <dimen name="jarak80dp">80dp</dimen>
+    <dimen name="jarak48dp">48dp</dimen>
+    <dimen name="jarak5dp">5dp</dimen>
+    <dimen name="jarak250dp">250dp</dimen>
+    <dimen name="jarak150dp">150dp</dimen>
+    <dimen name="size28sp">28sp</dimen>
+    <dimen name="size40sp">40sp</dimen>
+    <dimen name="size35sp">35sp</dimen>
+    <dimen name="size18sp">18sp</dimen>
+</resources>

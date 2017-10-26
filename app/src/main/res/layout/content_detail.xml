@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:showIn="@layout/activity_detail">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/jarak15dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="@dimen/jarak30dp"
+                    android:layout_height="@dimen/jarak30dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_time" />
+
+                <TextView
+                    android:id="@+id/text_durasi"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="@dimen/jarak5dp"
+                    android:textColor="@android:color/white"
+                    tools:text="2h 13m" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!--OVERVIEW-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/jarak15dp">
+
+            <TextView
+                android:id="@+id/storyline_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/text_storyline"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="@dimen/size18sp" />
+
+            <TextView
+                android:id="@+id/text_overview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/jarak10dp"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/size18sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/blue"
+            android:orientation="vertical"
+            android:padding="@dimen/jarak15dp">
+
+            <ProgressBar
+                android:id="@+id/progressbar_trailers"
+                style="?android:attr/progressBarStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/trailers_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/text_trailers"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="@dimen/size18sp" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recycler_trailer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/jarak10dp"
+                android:orientation="horizontal"
+                tools:listitem="@layout/trailer_item" />
+
+        </LinearLayout>
+
+
+        <include layout="@layout/movie_about_description" />
+
+    </LinearLayout>
+
+</android.support.v4.widget.NestedScrollView>
+
