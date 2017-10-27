@@ -53,6 +53,7 @@ class TrailersAdapter : RecyclerView.Adapter<TrailersAdapter.ViewHolder> {
         var imgTrailer = itemView?.findViewById<View>(R.id.img_trailer) as ImageView
     }
 
+    // method yang memebrikan action ketika list trailer diklik
     private fun watchYoutube(id: String?) {
         val appIntent: Intent = Intent(Intent.ACTION_VIEW, Uri.parse("vnd.youtube:" + id))
         val webIntent: Intent = Intent(Intent.ACTION_VIEW,

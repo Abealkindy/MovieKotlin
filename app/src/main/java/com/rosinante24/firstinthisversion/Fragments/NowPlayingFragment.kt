@@ -27,7 +27,7 @@ class NowPlayingFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         var view = inflater.inflate(R.layout.fragment_now_playing, container, false)
-
+// mengatur swipeLayout
         var swipe = view.findViewById<View>(R.id.refresh_now_playing) as SwipeRefreshLayout
         swipe.setOnRefreshListener {
             swipe.isRefreshing = false

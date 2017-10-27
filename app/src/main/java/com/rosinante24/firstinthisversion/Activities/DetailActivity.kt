@@ -26,7 +26,7 @@ class DetailActivity : AppCompatActivity() {
 
     var releaseDateMovie: String? = null
     override fun onCreate(savedInstanceState: Bundle?) {
-
+//      mengatur tampilan untuk fullscreen
         window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LAYOUT_STABLE or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             window.statusBarColor = Color.TRANSPARENT
@@ -35,10 +35,10 @@ class DetailActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail)
         setSupportActionBar(toolbar)
-
+//      Menonaktifkan title pada ActionBar
         supportActionBar!!.setDisplayShowTitleEnabled(false)
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
-
+//      Menangkap semua data yang diambil dari Intent
         val idMovie = intent.getIntExtra("id_movie", 0)
         val titleMovie = intent.getStringExtra("title_movie")
         val backdropMovie = intent.getStringExtra("backdrop_movie")
@@ -46,7 +46,7 @@ class DetailActivity : AppCompatActivity() {
         releaseDateMovie = intent.getStringExtra("releasedate_movie")
         val votesaverageMovie = intent.getDoubleExtra("votesaverage_movie", 0.00)
         val votecountMovie = intent.getIntExtra("votecount_movie", 0)
-
+//      Menaruh data yang sudah ditangkap ke widget yang ditentukan
         header_title.text = titleMovie
         text_overview.text = overviewMovie
         release_year.text = timeSetUp(releaseDateMovie!!)
@@ -56,11 +56,11 @@ class DetailActivity : AppCompatActivity() {
                 .load(EndPoints.IMAGE_URL_BACKDROP + backdropMovie)
                 .placeholder(R.drawable.placeholder)
                 .into(header_thumbnail)
-
+//      Mengatur bentuk dari recyclerView trailer, yang ada di dalam halaman DetailActivity.kt
         var linearLayoutManager: LinearLayoutManager = LinearLayoutManager(applicationContext)
         linearLayoutManager.orientation = LinearLayoutManager.HORIZONTAL
         recycler_trailer.layoutManager = linearLayoutManager
-
+//      Memanggil dan, menaruh data ke method yang dibutuhkan
         votesCount(votecountMovie)
         initCollapsingToolbar(titleMovie)
         loadDetail(idMovie)
@@ -70,6 +70,7 @@ class DetailActivity : AppCompatActivity() {
 
     }
 
+    //     Mengatur format tulisan waktu yang akan ditampilkan dari data yang ditangkap
     private fun timeSetUp(releasedateMovie: String): String {
         val time = Time()
         time.parse3339(releasedateMovie)
@@ -79,6 +80,7 @@ class DetailActivity : AppCompatActivity() {
 
     }
 
+    //     Mengatur tampilan vote yang ada di dalam ratingBar
     private fun votesCount(voteCount: Int) {
         if (voteCount >= 3) {
             votes_result.text = voteCount.toString() + " VOTES"
@@ -87,6 +89,7 @@ class DetailActivity : AppCompatActivity() {
         }
     }
 
+    //    Mengatur scrollingBar
     private fun initCollapsingToolbar(titleMovie: String) {
         toolbar_layout_detail.title = ""
         app_bar.addOnOffsetChangedListener(object : AppBarLayout.OnOffsetChangedListener {
@@ -111,6 +114,7 @@ class DetailActivity : AppCompatActivity() {
 
     }
 
+    //      Mengambil data untuk detailActivity memakai Retrofit dan GSON
     private fun loadDetail(idMovie: Int) {
 
         var api = InitRetrofit().getInitInstance()
@@ -157,6 +161,7 @@ class DetailActivity : AppCompatActivity() {
 
     }
 
+    //      Mengambil data untuk recyclerView Trailer yang ada di dalam DetailActivity.kt memakai Retrofit dan GSON
     private fun loadTrailer(idMovie: Int) {
         progressbar_trailers.visibility = View.GONE
 
