@@ -14,7 +14,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
-//      untuk memebri title pada masing2 tabLayout
+//      untuk memberi title pada masing2 tabLayout
         tabHome.addTab(tabHome.newTab().setText("Now Playing"))
         tabHome.addTab(tabHome.newTab().setText("Upcoming"))
 //      menginisialisasi adapter
