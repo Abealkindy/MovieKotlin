@@ -17,25 +17,20 @@ import com.squareup.picasso.Picasso
 /**
  * Created by Rosinante24 on 26/10/17.
  */
-class TrailersAdapter : RecyclerView.Adapter<TrailersAdapter.ViewHolder> {
-    var mTrailerData: List<TrailersPOKO.Data>? = null
-    var mContext: Context? = null
-
-    constructor(c: FragmentActivity?, data: List<TrailersPOKO.Data>?) {
-        this.mContext = c
-        this.mTrailerData = data
-    }
+class TrailersAdapter(c: FragmentActivity?, data: List<TrailersPOKO.Data>?) : RecyclerView.Adapter<TrailersAdapter.ViewHolder>() {
+    var mTrailerData: List<TrailersPOKO.Data>? = data
+    var mContext: Context? = c
 
     override fun onBindViewHolder(holder: ViewHolder?, position: Int) {
         val trailerData: TrailersPOKO.Data = mTrailerData!!.get(position)
 
-        Picasso.with(mContext)
+        Picasso.get()
                 .load("http://img.youtube.com/vi/${trailerData.key}/hqdefault.jpg")
                 .into(holder!!.imgTrailer)
 
-        holder.imgTrailer.setOnClickListener({ v ->
+        holder.imgTrailer.setOnClickListener {
             watchYoutube(trailerData.key)
-        })
+        }
 
     }
 
@@ -55,9 +50,9 @@ class TrailersAdapter : RecyclerView.Adapter<TrailersAdapter.ViewHolder> {
 
     // method yang memebrikan action ketika list trailer diklik
     private fun watchYoutube(id: String?) {
-        val appIntent: Intent = Intent(Intent.ACTION_VIEW, Uri.parse("vnd.youtube:" + id))
+        val appIntent: Intent = Intent(Intent.ACTION_VIEW, Uri.parse("vnd.youtube:$id"))
         val webIntent: Intent = Intent(Intent.ACTION_VIEW,
-                Uri.parse("http://www.youtube.com/watch?v=" + id))
+                Uri.parse("http://www.youtube.com/watch?v=$id"))
 
         try {
             mContext!!.startActivity(appIntent)

@@ -33,14 +33,14 @@ class NowPlayingFragmentAdapter : RecyclerView.Adapter<NowPlayingFragmentAdapter
 // yang berasal dari method OnCreateViewHolder
     override fun onBindViewHolder(holder: ViewHolder?, position: Int) {
 
-        val nowPlayingData: NowPlayingPOKO.NowPlayingData = mMovieData!!.get(position)
+        val nowPlayingData: NowPlayingPOKO.NowPlayingData = mMovieData!![position]
 
-        Picasso.with(mContext)
+        Picasso.get()
                 .load(EndPoints.IMAGE_URL_POSTER + nowPlayingData.poster_path)
                 .placeholder(R.drawable.placeholder)
                 .into(holder!!.movieThumb)
 // mengatur saat data list diklik
-        holder.squareLayout.setOnClickListener({ v ->
+        holder.squareLayout.setOnClickListener {
             val intent = Intent(mContext?.applicationContext, DetailActivity::class.java)
             intent.putExtra("id_movie", nowPlayingData.idMovie)
             intent.putExtra("title_movie", nowPlayingData.movieTitle)
@@ -50,7 +50,7 @@ class NowPlayingFragmentAdapter : RecyclerView.Adapter<NowPlayingFragmentAdapter
             intent.putExtra("votesaverage_movie", nowPlayingData.vote_average)
             intent.putExtra("votecount_movie", nowPlayingData.vote_count)
             mContext!!.startActivity(intent)
-        })
+        }
     }
 
     // menghitung panjang dari Array

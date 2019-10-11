@@ -52,7 +52,7 @@ class DetailActivity : AppCompatActivity() {
         release_year.text = timeSetUp(releaseDateMovie!!)
         votes_average.text = votesaverageMovie.toString()
 
-        Picasso.with(applicationContext)
+        Picasso.get()
                 .load(EndPoints.IMAGE_URL_BACKDROP + backdropMovie)
                 .placeholder(R.drawable.placeholder)
                 .into(header_thumbnail)
@@ -131,7 +131,7 @@ class DetailActivity : AppCompatActivity() {
                         content_premiere.text = timeSetUp(releaseDateMovie!!)
                         content_description.text = response.body()?.overview
 
-                        for (i in 0 until response.body()?.genres!!.size) {
+                        for (i in response.body()?.genres!!.indices) {
                             val genre = response.body()?.genres!![i]
 
                             if (i < response.body()?.genres!!.size - 1) {
@@ -141,7 +141,7 @@ class DetailActivity : AppCompatActivity() {
                             }
                         }
 
-                        for (i in 0 until response.body()?.production_companies!!.size) {
+                        for (i in response.body()?.production_companies!!.indices) {
                             var company = response.body()?.production_companies!![i]
                             if (i < response.body()?.production_companies!!.size - 1) {
                                 content_production.append(company.companyName + ", ")

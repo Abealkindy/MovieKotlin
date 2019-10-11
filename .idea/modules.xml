@@ -3,6 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/FirstInThisVersion.iml" filepath="$PROJECT_DIR$/FirstInThisVersion.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MovieKotlin.iml" filepath="$PROJECT_DIR$/MovieKotlin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/MovieKotlin-app.iml" filepath="$PROJECT_DIR$/app/MovieKotlin-app.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

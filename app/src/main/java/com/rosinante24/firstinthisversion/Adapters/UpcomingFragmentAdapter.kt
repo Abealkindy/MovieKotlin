@@ -29,14 +29,14 @@ class UpcomingFragmentAdapter : RecyclerView.Adapter<UpcomingFragmentAdapter.Vie
 
     override fun onBindViewHolder(holder: ViewHolder?, position: Int) {
 
-        val upcomingData: UpcomingPOKO.UpcomingData = mMovieData!!.get(position)
+        val upcomingData: UpcomingPOKO.UpcomingData = mMovieData!![position]
 
-        Picasso.with(mContext)
+        Picasso.get()
                 .load(EndPoints.IMAGE_URL_POSTER + upcomingData.poster_path)
                 .placeholder(R.drawable.placeholder)
                 .into(holder!!.movieThumb)
 
-        holder.squareLayout.setOnClickListener({ v ->
+        holder.squareLayout.setOnClickListener {
             val intent = Intent(mContext?.applicationContext, DetailActivity::class.java)
             intent.putExtra("id_movie", upcomingData.idMovie)
             intent.putExtra("title_movie", upcomingData.movieTitle)
@@ -46,7 +46,7 @@ class UpcomingFragmentAdapter : RecyclerView.Adapter<UpcomingFragmentAdapter.Vie
             intent.putExtra("votesaverage_movie", upcomingData.vote_average)
             intent.putExtra("votecount_movie", upcomingData.vote_count)
             mContext!!.startActivity(intent)
-        })
+        }
     }
 
     override fun getItemCount(): Int {
